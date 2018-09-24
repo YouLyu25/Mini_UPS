@@ -41,21 +41,21 @@ The user should record the worldid printed in testing software's end for later u
 
 
 ------------------------------------------------------------------------------------
-3. The user may now need to set up the warehouse and stocking information in the
+2. The user may now need to set up the warehouse and stocking information in the
 world's database to simulate the operation of Amazon.
 
-3.1 The user needs to use similar way to look for the "world" container's name:
+2.1 The user needs to use similar way to look for the "world" container's name:
 "sudo docker container ls"
 and the results will be "project_world_X" where X can be an arbitrary number.
 
-3.2 The user needs to enter:
+2.2 The user needs to enter:
 "sudo docker exec -it project_world_X /bin/bash"
 to attach a terminal and interact with the world container where project_world_X is
 the name of world container just looked up.
 The result is an attached terminal with information like:
 "postgres@343df7783df1:/sim$ "
 
-3.3 The user can now check the scripts under /sim directory using "ls", and then
+2.3 The user can now check the scripts under /sim directory using "ls", and then
 run the .sh file named "init_whread.sh" using:
 "./init_whready.sh [worldid_the_testing_program_received]"
 This operation will init the warehouse stocks for our testing, to be specific,
@@ -63,15 +63,15 @@ warehouse 1 will now have package with packageid 1, warehouse 2 will now have
 package with packageid 2, and so forth. There will be 11 warehouse in total fromi
 warehouse 1 to warehouse 10, each contains a package with corresponding packageid.
 
-3.4 The user now needs to enter:
+2.4 The user now needs to enter:
 "./rst_truckhas.sh [worldid_the_testing_program_received]"
 to clear the truck state.
 
-3.5 The user will now terminate the containers and amazon_server.py.
+2.5 The user will now terminate the containers and amazon_server.py.
 
 
 ------------------------------------------------------------------------------------
-4. Run the containers using:
+3. Run the containers using:
 "sudo docker-compose up"
 again and then run:
 "python3 ./amazon_server.py"
