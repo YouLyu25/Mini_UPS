@@ -1,0 +1,410 @@
+<html>
+<link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+<style>
+.form-bg{
+    background: #00b4ef;
+}
+.form-horizontal{
+    background: #fff;
+    padding-bottom: 40px;
+    border-radius: 15px;
+    text-align: center;
+}
+.form-horizontal .heading{
+    display: block;
+    font-size: 35px;
+    font-weight: 700;
+    padding: 35px 0;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 30px;
+}
+.form-horizontal .form-group{
+    padding: 0 40px;
+    margin: 0 0 25px 0;
+    position: relative;
+}
+.form-horizontal .form-control{
+    background: #f0f0f0;
+    border: none;
+    border-radius: 20px;
+    box-shadow: none;
+    padding: 0 20px 0 45px;
+    height: 40px;
+    transition: all 0.3s ease 0s;
+}
+.form-horizontal .form-control:focus{
+    background: #e0e0e0;
+    box-shadow: none;
+    outline: 0 none;
+}
+.form-horizontal .form-group i{
+    position: absolute;
+    top: 12px;
+    left: 60px;
+    font-size: 17px;
+    color: #c8c8c8;
+    transition : all 0.5s ease 0s;
+}
+.form-horizontal .form-control:focus + i{
+    color: #00b4ef;
+}
+.form-horizontal .fa-question-circle{
+    display: inline-block;
+    position: absolute;
+    top: 12px;
+    right: 60px;
+    font-size: 20px;
+    color: #808080;
+    transition: all 0.5s ease 0s;
+}
+.form-horizontal .fa-question-circle:hover{
+    color: #000;
+}
+.form-horizontal .main-checkbox{
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: #11a3fc;
+    border-radius: 50%;
+    position: relative;
+    margin: 5px 0 0 5px;
+    border: 1px solid #11a3fc;
+}
+.form-horizontal .main-checkbox label{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+.form-horizontal .main-checkbox label:after{
+    content: "";
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    border: 3px solid #fff;
+    border-top: none;
+    border-right: none;
+    background: transparent;
+    opacity: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.form-horizontal .main-checkbox input[type=checkbox]{
+    visibility: hidden;
+}
+.form-horizontal .main-checkbox input[type=checkbox]:checked + label:after{
+    opacity: 1;
+}
+.form-horizontal .text1{
+    background:#6fd3e2;
+    border-radius: 20px;
+    width: 250px;
+    height: 30px;
+    float: center;
+    margin-left: 35px;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    line-height: 20px;
+    padding-top: 1px;
+    text-transform: capitalize;
+}
+
+.form-horizontal .text3{
+    background:#6fd3e2;
+    border-radius: 20px;
+    width: 100px;
+    height: 30px;
+    float: center;
+    margin-left: 35px;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    line-height: 20px;
+    padding-top: 1px;
+    text-transform: capitalize;
+}
+.form-horizontal .text2{
+    background:#6fe2d1;
+    border-radius: 20px;
+    color: #fff;
+    width: 70px;
+    height: 30px;
+    float: center; 
+    margin-left: 15px;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    line-height: 20px;
+    padding-top: 1px;
+    text-transform: capitalize;
+}
+
+.form-horizontal .intro{
+    float: center;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    padding-top: 5px;
+    text-transform: capitalize;
+}
+
+.form-horizontal .butt{
+    float: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    width: 270px;
+    background: #6fd3e2;
+    border-radius: 30px;
+    padding: 10px 25px;
+    border: none;
+    text-transform: capitalize;
+    transition: all 0.5s ease 0s;
+}
+
+.form-horizontal .butttt{
+    float: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    width: 270px;
+    margin-bottom: 16px;
+    background: #cd0a66;
+    border-radius: 30px;
+    padding: 10px 25px;
+    border: none;
+    text-transform: capitalize;
+    transition: all 0.5s ease 0s;
+}
+
+.form-horizontal .buttt{
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 5px;
+    color: #fff;
+    width: 100px;
+    background: #6fe2d1;
+    border-radius: 30px;
+    padding: 10px 25px;
+    border: none;
+    text-transform: capitalize;
+    transition: all 0.5s ease 0s;
+}
+
+.form-horizontal .btn{
+    float: center;
+    font-size: 18px;
+    font-weight: 550;
+    color: #fff;
+    width: 375px;
+    background: #00b4ef;
+    border-radius: 30px;
+    padding: 10px 25px;
+    border: none;
+    text-transform: capitalize;
+    transition: all 0.5s ease 0s;
+}
+@media only screen and (max-width: 479px){
+    .form-horizontal .form-group{
+        padding: 0 25px;
+    }
+    .form-horizontal .form-group i{
+        left: 45px;
+    }
+    .form-horizontal .btn{
+        padding: 10px 20px;
+    }
+}
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <form class="form-horizontal">
+            {% if user.is_authenticated %}
+                <span class="heading">User Panel</span>
+                <div class="form-group">
+                    <p class="intro">Hi, {{user.username}}, welcome to your world!</p>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-default" onclick="list()">check your packages</button>
+                </div>
+		<div class="input-dyna-add" id="input-dyna-add1"></div>
+		<div class="input-dyna-add" id="input-dyna-add4"></div>
+		<div class="input-dyna-add" id="input-dyna-add5"></div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-default" onclick="search()">Track a package</button>
+                </div>
+		<div class="input-dyna-add" id="input-dyna-add2"></div>
+		<div class="input-dyna-add" id="input-dyna-add3"></div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-default" onclick="logout()">logout</button>
+                </div>
+            {% else %}
+                <span class="heading">Please login first</span>
+                <div class="form-group">
+                    <button type="button" class="btn btn-default" onclick="login()">login</button>
+                </div>
+            {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+
+  function logout () {
+    var r = confirm("Are you sure you want to log out?");
+    if (r == true){
+      var post_data = {"info": "logout"};
+      var url = "http://" + location.host + "/ups_frontend/logout/";
+      $.post(url,
+        post_data,
+        function(data, status){
+          if (data == "user successfully logs out!") { //successfully logged in
+            alert(data);
+            url = "http://" + location.host + "/ups_frontend/login/";
+            location.href=url;
+          }
+          else {
+            alert(data);
+          }
+        }
+      );
+    }
+  }
+
+
+  var flag1 = 0;
+  var post_back;
+  var post = new Array();
+  function list () {
+    var url = "http://" + location.host + "/ups_frontend/list/";
+    $.post(url,
+	   function (data){
+             if(flag1 == 0){
+	       post_back = JSON.parse(data);
+	       len = post_back.length;
+               var input;
+	       for(var i = 0; i < len; i++){
+                 if(post_back[i][2] == 0){
+	           input = $("<div class='form-group' name='desc1[]'>" + "<button type=\"button\" class=\"butt butt-default\" id=\"" + i +  "\" onclick=\"show_item()\">" + post_back[i][0] + ":" + post_back[i][1] + " Dest:" + post_back[i][3] + "," + post_back[i][4] + "</button></div>");
+                 }
+		 else{
+		   input = $("<div class='form-group' name='desc1[]'>" + "<button type=\"button\" class=\"butt butt-default\" id=\"" + i +  "\" onclick=\"show_item()\">" + post_back[i][0] + " Status: " + post_back[i][1] + " Dest:" + post_back[i][3] + "," + post_back[i][4] + "</button><button type=\"button\" class=\"buttt buttt-default\" id=\"" + i + "\" onclick=\"pop()\" >Alter</button></div>");
+                 }
+	         $("#input-dyna-add4").append(input);
+	       }
+	       flag1 = 1;
+             }
+	     else{
+  		$("#input-dyna-add4").empty();
+		$("#input-dyna-add1").empty();
+		$("#input-dyna-add5").empty();
+		flag1 = 0;
+             }
+	   }
+    ); 
+  }
+
+  function pop_two_item(){
+
+
+  } 
+   
+  function show_item(){
+    $("#input-dyna-add5").empty();
+    var id = post_back[event.target.id][0];
+    var input = $("<div class=\"form\"><button type=\"button\" class=\"butttt\" onclick=\"clear5()\">Items in package : " + id + "</button></div>");
+    $("#input-dyna-add5").append(input);  
+    var post_data = {"trackingid":id};
+    var url = "http://" + location.host + "/ups_frontend/showitem/"; 
+    $.post(url,post_data,
+           function (data){
+               var item_info = JSON.parse(data);
+   	       len = item_info.length;
+               for(var i = 0; i < len; i++){
+		 input = $("<div class=\"form\"><button type=\"button\" class=\"butttt\">" + item_info[i][0] + "</button></div>");
+                 $("#input-dyna-add5").append(input);
+               }
+           }
+    ); 
+  }
+
+  function clear5(){
+    $("#input-dyna-add5").empty();
+  }
+ 
+  function pop(){
+    $("#input-dyna-add1").empty();
+    $("#input-dyna-add5").empty();
+    post[0] = post_back[event.target.id][0];
+    var input = $("<div class=\"form\"><input type=\"text\" id=\"pos_x\" class=\"text3\" placeholder=\"pos_x\"></input><input type=\"text\" id=\"pos_y\" class=\"text3\" placeholder=\"pos_y\"></input><button type=\"button\" class=\"text2\" onclick=\"update()\">Post</button></div>");
+      $("#input-dyna-add1").append(input);
+  }
+
+  var flag2 = 0;
+  function search () {
+    if(flag2 == 0){
+      var input = $("<div class=\"form\"><input type=\"text\" id=\"tracking_info\" class=\"text1\" placeholder=\"trackingid\"></input><button type=\"button\" class=\"text2\" onclick=\"fun()\">search</button></div>");
+      $("#input-dyna-add2").append(input);
+      flag2 = 1;
+    }
+    else{
+      $("#input-dyna-add2").empty();
+      $("#input-dyna-add3").empty();
+      flag2 = 0;
+    }
+  }
+
+  function fun(){
+    var content = $("#tracking_info").val();
+    var url = "http://" + location.host + "/ups_frontend/track/";
+    post_data = {"trackingid":content}; 
+    $.post(url,post_data,
+           function (data){
+               $("#input-dyna-add3").empty();
+               var post_back = JSON.parse(data);
+               var input = $("<div class='form-group' name='desc2[]'>" + "<button type=\"button\" class=\"butt butt-default\">" + post_back[0][0] + ":" + post_back[0][1] + "</button></div>");
+               $("#input-dyna-add3").append(input);
+           }
+    ); 
+  }
+
+  function update(){
+    //非负浮点数
+    var validate1 = /^\d+(\.\d+)?$/;
+    //非正浮点数
+    var validate2 = /^((-\d+(\.\d+)?)|(0+(\.0+)?))$/;
+    //非负整数
+    var validate3 = /^\d+$/;
+    //非正整数
+    var validate4 = /^((-\d+)|(0+))$/;
+    post[1]  = $("#pos_x").val();
+    post[2]  = $("#pos_y").val();
+    var test1 = (validate1.test(post[1])||validate2.test(post[1])||validate3.test(post[1])||validate4.test(post[1]));
+    var test2 = (validate1.test(post[2])||validate2.test(post[2])||validate3.test(post[2])||validate4.test(post[2]));
+    var ans = test1&&test2;
+    if(ans){ 
+      post_data = {"trackingid":post[0],
+		   "pos_x"     :post[1],
+		   "pos_y"     :post[2]};
+      var url = "http://" + location.host + "/ups_frontend/post/";
+      $.post(url,post_data,
+           function (data){
+	     alert(data);
+           }
+      );
+    }
+    else{
+      alert("Wrong format of position!");
+    }
+    location.reload(); 
+  }
+</script>
+
+</html>

@@ -1,0 +1,53 @@
+version: '2'
+
+services:
+  world:
+    build: ./world_Docker
+    volumes:
+      - .:/world
+    expose:
+      - "12345"
+      - "23456"
+    ports:
+      - "12345:12345"
+      - "23456:23456"
+  
+  ups:
+    build: ./ups_Docker
+    volumes:
+      - .:/ups
+    expose:
+      - "44445"
+    ports:
+      - "44445:44445"
+    depends_on:
+      - world
+      - db
+  
+  db:
+    image: postgres
+    #expose:
+    #   - "5432"
+    #ports:
+    #   - "5432:5432"
+  
+  web:
+    build: ./web-app
+    #user: nobody
+    command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./web-app:/code
+    expose:
+      - "8000"
+    depends_on:
+      - db
+  
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./nginx/config:/etc/nginx/conf.d
+    depends_on:
+      - web
+

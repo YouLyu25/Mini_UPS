@@ -1,0 +1,109 @@
+This product designed by our group(zl158 and yl489) sets the goal of providing
+user-friendly product which covers the aspects of security, operability,
+scalability, being informative and algorithm improvement.
+
+
+
+1. security:
+
+1.1 In registering, format of email and password are checked, wrong format of
+email and short password will be rejected. Also, users that already registered
+shall no longer be permitted to keep registering, thus preventing from malicious
+behavior.
+
+1.2 In tracking a package, this function is provided whether you have logged in
+or not. However, by tracking a package with a trackingid, the user shall not get
+further information of the package being delivered, including the history and the
+items in the package. In this way, we can prevent from malicious user trying to
+obtain others information by randomly guessing the trackingid.
+
+1.3 When user buys something in Amazon, Amazon will inform UPS by sending a
+specific message named gopickups as specified in our protocol document, the message
+will contain the destination address as well as an optionally provided ups account.
+When our server receives the message, we will try to check if the destination
+address provided is the same as the address registered by user's UPS account. If
+the provided UPS account and the destination address matches, then the UPS server
+will associate this package with the provided UPS account, if the information does
+not match, we will still store the package info as "nobody"'s package and the
+user can only track it via the tracking number.
+
+
+
+2. operability:
+
+2.1 The UI of the web is neat but informative, information are dynamically shown to
+the user with certain operation. In this way, information will not be cluttering
+and overwhelming, annoying the user.  
+
+2.2 The web is designed to be easy for the user. For example, when user wants to see
+the details for his/her packages, there will be alter button popped only in front of
+those packages that are allowed to alter destination(not out for delivery or delivered).
+This will be obvious and easy for the user to operate.
+
+2.3 When user tries to update or create new accounts, certain information will be
+popping up to inform the user if the operation succeeds or fails, also there will be
+details included in the window shown to the user. For example, when a user tries to
+update the destination information for a package, if this request succeeds, the user
+will be informed of this, but if it fails, the user will be notified that the
+operation fails because during the time slot, the truck already begins to ship
+the package.
+
+
+
+3. scalability:
+
+3.1 In our implementation, we used thread pool to handle concurrent tasks properly.
+In our design, the world's messages and messages from Amazon will be handled in two
+different independent threads. Each arrived message will be treated as task and each
+task will be handled by a separate thread from the thread pool. We use this
+implementation to improve the ability our server to handle large amount of concurrent
+requests as well as the system scalability.
+
+
+
+4. being informative:
+
+4.1 email notification:
+When the shipment of a package is created and when the package has been successfully
+delivered, the user will receive emails from UPS server indicating that a shipment of
+his/her package has been created along with the tracking_number, and a package has
+been successfully delivered along with the destination address. Note that the email
+will be sent to the email user provided when he/she registered UPS account.
+In this way, the user could know which package has arrived where, and they can be
+prepared to pick up their packages.
+
+4.2 history tracking:
+In the real world, user would want to know where is the package and the status of the
+package. Also, they will be interested in when was the package loaded and or was the
+package out for delivery. We provide this functionality that when logging in, the user
+could track the package's history. When user presses the "history" button on each item,
+the package's historical status as well as the specific time for that status will be
+displayed. For example, the user may see "created at 2018-04-03 12:11:11" and "out for
+delivery at 2018-04-03 12:12:12" and so forth. If the status has not been reached, the
+time for that status would be null.
+
+4.3 more status:
+Apart from the four status provided in the project description, we provide two more
+status: "loaded and waiting for delivery" and "delivered". With this improvement,
+the package owner could keep track of the package in a better way.
+
+4.4 log file:
+For the benefit of user and system owner, we provide a log file named System.log in the
+directory ups_container, in this log file, time for each important event and the
+information for each event could be found here. System owner could better check for
+what is actually going on, and it will be easier to debug.
+
+
+5. algorithm improvement:
+In our implementation we made some improvement in scheduling the truck to make the
+utilization higher. Sometomes it may not be very effcient to have a truck sent for
+delivery for each package, therefore, we set a restriction on the number of packages a
+truck can hold. For example, the truck could be set to at least be loaded with 5
+packages before sent to delivery. The limit can be set manually hence add flexibility
+to our design and implementation. The package limit can be changed by changing the
+global variable "package_limit" in /ups_Docker/handle_msg.py.
+If the tester would like to see the whole shipping process in a clearer way, the number
+could be set to 1 and the track of certain package will be easier as a truck will be
+directly sent for delivery when it is loaded with that package.
+
+

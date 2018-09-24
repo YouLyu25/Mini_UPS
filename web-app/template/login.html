@@ -1,0 +1,246 @@
+<html>
+<link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+<body background="https://francishare.files.wordpress.com/2011/03/ups-freight-volvo-and-long-box.jpg">
+<style>
+div#form-wrapper {
+    position:absolute;
+    top:80px;
+    right:0;
+    left:0;
+}
+.form-bg{
+    background: #00b4ef;
+    opacity: 0;
+}
+.form-horizontal{
+    background-color: transparent;
+    padding-bottom: 40px;
+    border-radius: 40px;
+    text-align: center;
+    opacity: 1;
+}
+.form-horizontal .heading{
+    display: block;
+    font-size: 45px;
+    font-weight: 700;
+    padding: 35px 0;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 30px;
+}
+
+.form-horizontal .subheading{
+    display: block;
+    font-size: 25px;
+    font-weight: 700;
+    padding: 20px 0;
+    border-bottom: 0px solid #f0f0f0;
+    margin-bottom: 30px;
+}
+
+.form-horizontal .form-group{
+    padding: 0 40px;
+    margin: 0 0 25px 0;
+    position: relative;
+}
+.form-horizontal .form-control{
+    border: none;
+    border-radius: 20px;
+    box-shadow: none;
+    padding: 0 20px 0 45px;
+    height: 40px;
+    transition: all 0.3s ease 0s;
+}
+.form-horizontal .form-control:focus{
+    background: #e0e0e0;
+    box-shadow: none;
+    outline: 0 none;
+}
+.form-horizontal .form-group i{
+    position: absolute;
+    top: 12px;
+    left: 60px;
+    font-size: 17px;
+    color: #c8c8c8;
+    transition : all 0.5s ease 0s;
+}
+.form-horizontal .form-control:focus + i{
+    color: #00b4ef;
+}
+.form-horizontal .fa-question-circle{
+    display: inline-block;
+    position: absolute;
+    top: 12px;
+    right: 60px;
+    font-size: 20px;
+    color: #808080;
+    transition: all 0.5s ease 0s;
+}
+.form-horizontal .fa-question-circle:hover{
+    color: #000;
+}
+.form-horizontal .main-checkbox{
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-radius: 50%;
+    position: relative;
+    margin: 5px 0 0 5px;
+    border: 1px solid #11a3fc;
+}
+.form-horizontal .main-checkbox label{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+.form-horizontal .main-checkbox label:after{
+    content: "";
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    border: 3px solid #fff;
+    border-top: none;
+    border-right: none;
+    background: transparent;
+    opacity: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.form-horizontal .main-checkbox input[type=checkbox]{
+    visibility: hidden;
+}
+.form-horizontal .main-checkbox input[type=checkbox]:checked + label:after{
+    opacity: 1;
+}
+.form-horizontal .text{
+    float: left;
+    color: #fff;
+    margin-left: 7px;
+    line-height: 20px;
+    padding-top: 5px;
+    text-transform: capitalize;
+}
+.form-horizontal .btn{
+    float: right;
+    font-size: 10px;
+    color: #fff;
+    background: #00b4ef;
+    border-radius: 30px;
+    padding: 6px 25px;
+    border: none;
+    text-transform: capitalize;
+    transition: all 0.5s ease 0s;
+}
+
+.form-horizontal .btn2{
+    float: right;
+    font-size: 10px;
+    color: #fff;
+    background: #00b4ef;
+    border-radius: 30px;
+    padding: 6px 25px;
+    border: none;
+    margin-right: 15px;
+    text-transform: capitalize;
+    transition: all 0.5s ease 0s;
+}
+.form-horizontal .btn3{
+    float: center;
+    font-size: 15px;
+    width: 325px;
+    height: 40px;
+    color: #fff;
+    background: #00b4ef;
+    border-radius: 30px;
+    padding: 6px 25px;
+    border: none; 
+    margin-right: 15px;
+    text-transform: capitalize;
+    transition: all 0.5s ease 0s;
+}
+
+
+@media only screen and (max-width: 479px){
+    .form-horizontal .form-group{
+        padding: 0 25px;
+    }
+    .form-horizontal .form-group i{
+        left: 45px;
+    }
+    .form-horizontal .btn{
+        padding: 10px 20px;
+    }
+}
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-8 col-md-5">
+	<div id="form-wrapper" style="text-align:center; vertical-align:middle">
+            <form class="form-horizontal">
+                <span class="heading">User Login</span>
+                <div class="form-group">
+                    <input type="username" class="form-control" id="username" placeholder="Username" required>
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="form-group help">
+                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                    <i class="fa fa-lock"></i>
+                    <a href="#" class="fa fa-question-circle"></a>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn3" onclick="track()">Search</button>
+                </div>
+                <div class="form-group">
+                    <div class="main-checkbox">
+                        <input type="checkbox" value="None" id="checkbox1" name="check"/>
+                        <label for="checkbox1"></label>
+                    </div>
+                    <span class="text">Remember me</span>
+                    <button type="button" class="btn btn-default" onclick="login()">login</button>
+                    <button type="button" class="btn2" onclick="regist()">register</button>
+                </div>
+            </form>
+	</div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  function track (){
+    var url = "http://" + location.host + "/ups_frontend/search/";
+    location.href=url;
+  }
+ 
+  function login () {
+    var data = {"username": $("#username").val(),
+                "password": $("#password").val()}
+    var url = "http://" + location.host + "/ups_frontend/authentication/";
+    $.post(url,
+      data,
+      function(data){
+        if (data == "login succeed! welcome!") { //successfully logged in
+          alert(data);
+          url = "http://" + location.host + "/ups_frontend/user/";
+          location.href=url;
+        }
+        else {
+          alert(data);
+        }
+      }
+    );
+  }
+
+  function regist () {
+    var url = "http://" + location.host + "/ups_frontend/regist/";
+    location.href=url;
+  }
+</script>
+
+</html>
