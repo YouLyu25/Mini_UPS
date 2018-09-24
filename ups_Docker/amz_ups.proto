@@ -1,0 +1,72 @@
+message UAConnect{
+  required int64 worldid = 1;
+  optional string error = 2;
+}
+
+message AUConnected{
+  optional string error = 1;
+}
+
+message AProduct {
+  required int64 id = 1;
+  required string description = 2;
+  required int32 count = 3;
+}
+
+message GoPickUp {
+  required int32 whid = 1;
+  required int32 dst_x = 2;
+  required int32 dst_y = 3;
+  required int64 packageid = 4;
+  repeated AProduct things =5;
+  optional string userid = 6;
+}
+
+message LoadSuccess{
+  required int64 packageid = 1;
+}
+
+message GetDeliveryStatus{
+  required int32 tracking_number = 1;
+}
+
+message PackageReqAck{
+  required int32 tracking_number = 1;
+  required int64 packageid = 2;
+}
+
+message TruckArrived{
+  required int64 packageid = 1;
+  required int32 truckid = 2;
+}
+
+message LoadConfirmation{
+  required int64 packageid = 1;
+}
+
+message ReturnDeliveryStatus{
+  required int64 tracking_number = 1;
+  required string status = 2;
+}
+
+message DeliveryCompleted{
+  required int64 packageid = 1;
+}
+
+message AUMessages{
+  repeated GoPickUp gopickups = 1;
+  repeated LoadSuccess loaded = 2;
+  repeated GetDeliveryStatus queries = 3;
+  optional string error = 4;
+  optional bool finished = 5;
+}
+
+message UAMessages{
+  repeated PackageReqAck createdShipments = 1;
+  repeated TruckArrived arrived = 2;
+  repeated LoadConfirmation loadedConfirm = 3;
+  repeated ReturnDeliveryStatus queryResults = 4;
+  repeated DeliveryCompleted delivered = 5;
+  optional string error = 6;
+  optional bool finished = 7;
+}
